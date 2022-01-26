@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-card">
+    <ion-card-header>
+      <ion-card-subtitle>Bienvenido a iBiblioteca!</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+     iBiblioteca es una apicación desarrollada con Ionic que permite gestionar una biblioteca de un centro educativo.
+     Para acceder a la biblioteca pulsa en el siguiente boton:
+     <p><ion-icon name="school" size="large"></ion-icon> <ion-button color="transparent"class="boton" [routerLink]="['/biblioteca']">Acceso a iBiblioteca</ion-button>
+     </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-card">
+    <ion-card-header>
+      <ion-card-subtitle>Información sobre el autor</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+     Aplicación desarrollada por Joaquín Gómez
+     <p><ion-icon name="person" size="large"></ion-icon> <ion-button color="transparent"class="boton" [routerLink]="['/autor']">Consultar información</ion-button>
+     </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
