@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Libro } from './interfaces/libro';
+import { BibliotecaService } from './services/biblioteca-service.service';
 
 @Component({
   selector: 'app-biblioteca',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BibliotecaPage implements OnInit {
 
-  constructor() { }
+  libros: Libro[]=[]
+
+  constructor(private bibliotecaService: BibliotecaService) { }
 
   ngOnInit() {
+    this.obtenerLibros()
   }
+
+  obtenerLibros(){
+    this.bibliotecaService.buscarLibros().subscribe(resp=>
+      {
+        this.libros = resp ;
+        console.log(this.libros)
+      })
+  }
+
 
 }
