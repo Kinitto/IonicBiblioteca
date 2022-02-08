@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="libro">
+    <img src="http://covers.openlibrary.org/b/isbn/{{libro.isbn[1]}}.jpg"/>
+    <ion-card-header>
+      <ion-card-title>{{libro.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Autor: {{libro.author_name}} </p>
+      <p>Año: {{libro.first_publish_year}}</p>
+      <p>ISBN: {{libro.isbn[1]}}</p>
+      <p>Editorial: {{libro.publisher_facet[0]}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

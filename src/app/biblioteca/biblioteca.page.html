@@ -5,9 +5,13 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-toolbar >
+      <ion-searchbar #palabra
+      (keyup.enter)="busqueda(palabra.value)">
+</ion-searchbar>
+    </ion-toolbar>
   <ion-list>
-     <ion-item *ngFor="let libro of libros.docs">
+     <ion-item *ngFor="let libro of libros" (click)="detalle(libro.cover_edition_key)">
         <ion-thumbnail slot="start">
           <img src="http://covers.openlibrary.org/b/isbn/{{libro.isbn[1]}}.jpg" />
         </ion-thumbnail>
@@ -16,7 +20,7 @@
           <p>Autor: {{libro.author_name}} </p>
           <p>Año: {{libro.first_publish_year}}</p>
         </ion-label>
-   </ion-item>
+      </ion-item>
   </ion-list>
 
 </ion-content>
