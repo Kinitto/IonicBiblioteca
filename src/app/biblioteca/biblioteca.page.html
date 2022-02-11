@@ -9,9 +9,12 @@
       <ion-searchbar #palabra
       (keyup.enter)="busqueda(palabra.value)">
 </ion-searchbar>
+<ion-button color="danger" (click)="scanBRcode()" expand="block">
+  Scan Barcode
+</ion-button>
     </ion-toolbar>
   <ion-list>
-     <ion-item *ngFor="let libro of libros" (click)="detalle(libro.cover_edition_key)">
+     <ion-item *ngFor="let libro of libros" (click)="detalle(libro.isbn[1])">
         <ion-thumbnail slot="start">
           <img src="http://covers.openlibrary.org/b/isbn/{{libro.isbn[1]}}.jpg" />
         </ion-thumbnail>
