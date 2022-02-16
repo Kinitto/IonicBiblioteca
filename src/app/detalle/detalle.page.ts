@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from '../biblioteca/interfaces/libro';
 import { BibliotecaService } from '../biblioteca/services/biblioteca-service.service';
+import { StorageService } from '../services/storage-service.service';
 
 @Component({
   selector: 'app-detalle',
@@ -11,7 +12,10 @@ import { BibliotecaService } from '../biblioteca/services/biblioteca-service.ser
 export class DetallePage implements OnInit {
 
   libro:any
-  constructor(private activateRoudte: ActivatedRoute,private bibliotecaService: BibliotecaService) { }
+  constructor(private activateRoudte: ActivatedRoute,
+    private bibliotecaService: BibliotecaService,
+    private storageService:StorageService) { }
+
 
   ngOnInit() {
     this.verLibroDetalle();
@@ -24,6 +28,10 @@ export class DetallePage implements OnInit {
       next: resp=>{this.libro=resp,this.libro = this.libro.docs[0]}
     });
 
+  }
+
+  guardarLibro(){
+    this.storageService.set(this.libro)
   }
 
 }

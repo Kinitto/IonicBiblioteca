@@ -11,10 +11,17 @@
       <ion-card-title>{{libro.title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+
       <p>Autor: {{libro.author_name}} </p>
       <p>Año: {{libro.first_publish_year}}</p>
       <p>ISBN: {{libro.isbn[1]}}</p>
       <p>Editorial: {{libro.publisher_facet[0]}}</p>
+      <p>Añadir a favoritos
+        <button (click)="guardarLibro()">
+        <h1><ion-icon name="star-outline"></ion-icon></h1>
+       </button>
+      </p>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
