@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Libro } from '../biblioteca/interfaces/libro';
 import { BibliotecaService } from '../biblioteca/services/biblioteca-service.service';
 import { StorageService } from '../services/storage-service.service';
 
@@ -12,12 +11,14 @@ import { StorageService } from '../services/storage-service.service';
 export class DetallePage implements OnInit {
 
   libro:any
+  listafavorito:any[]=[]
   constructor(private activateRoudte: ActivatedRoute,
     private bibliotecaService: BibliotecaService,
-    private storageService:StorageService) { }
+    private storageService:StorageService) {
+     }
 
 
-  ngOnInit() {
+    async ngOnInit() {
     this.verLibroDetalle();
   }
 
@@ -30,8 +31,9 @@ export class DetallePage implements OnInit {
 
   }
 
-  guardarLibro(){
-    this.storageService.set(this.libro)
+  async guardarLibro(){
+    this.storageService.get("libro").then((resp) =>{this.listafavorito.push(resp)})
+    await this.storageService.set("libro",this.listafavorito)
   }
 
 }
